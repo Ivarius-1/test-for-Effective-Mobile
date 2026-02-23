@@ -22,8 +22,7 @@
 
 ### 1. Клонировать репозиторий
 ```bash
-git clone <ссылка на репозиторий>
-cd <папка проекта>
+git clone https://github.com/Ivarius-1/test-for-Effective-Mobile.git
 ```
 
 ### 2. Установить зависимости
