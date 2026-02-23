@@ -1,0 +1,37 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.ts",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "scripts": {
+    "dev": "ts-node server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "redis": "^5.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/jsonwebtoken": "^9.0.10",
+    "prisma": "^6.19.2"
+  }
+}
