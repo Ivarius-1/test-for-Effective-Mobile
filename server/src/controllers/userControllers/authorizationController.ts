@@ -1,11 +1,12 @@
 import { type Request, type Response, type NextFunction } from "express";
-import bcrypt from 'bcrypt'
+import bcrypt, { compare } from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { randomUUID } from 'crypto'
 import { prisma } from "../../prisma/prisma.ts";
 import { redis } from "../../configs/redis.ts";
 import { catchAsync } from "../../utils/catchAsync.ts";
 import { AppError } from "../../utils/AppError.ts";
+import { comparePassword } from "../../utils/bcrypt.ts";
 
 export class authorizationController{
     static authUser = catchAsync(async (req:Request,res:Response,next:NextFunction) => {
@@ -18,7 +19,7 @@ export class authorizationController{
             where:{email}
         })
 
-        if(!user || !await bcrypt.compare(password, user.password)){
+        if(!user || !await comparePassword(password, user.password)){
             return next(new AppError('Неверный email или пароль', 403))
         }
 
